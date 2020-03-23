@@ -7,14 +7,12 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using eShopSolution.ViewModels.Catalog.Products.Manage;
 using eShopSolution.ViewModels.Catalog.Products;
 using eShopSolution.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
 using System.IO;
 using eShopSolution.Application.Common;
-using eShopSolution.ViewModels.Catalog.Products.Public;
 
 namespace eShopSolution.Application.Catalog.Products
 {
@@ -111,7 +109,7 @@ namespace eShopSolution.Application.Catalog.Products
 			throw new NotImplementedException();
 		}
 
-		public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+		public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
 		{
 			var query = from p in _context.Products
 						join pt in _context.ProductTranslations on p.Id equals pt.ProductId
